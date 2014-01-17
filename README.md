@@ -1,7 +1,7 @@
 wordCount
 =========
 
-Count and analyze frequency of words in given contents
+Count and analyze frequency of words from given contents
 
 本工具主要用于辅助英语学习
 比如我正在通过BBC或者CNN学习英语,必然有很多单词我不懂,传统的分析办法是遇到一个背诵一个,本程序的设计初衷,
