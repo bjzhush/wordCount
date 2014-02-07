@@ -1,4 +1,6 @@
 <?php
+
+include('function.php');
 $timeStart = microtime();
 
 function errorShow($errorInfo) {
@@ -27,49 +29,8 @@ if ($htmlSource === FALSE) {
     errorShow('url ' . $url . ' reading error');
 }
 
-/**
- *  strip html tags
- */
-$stripedSource = strip_tags($htmlSource);
+$arrPond = wordParse($htmlSource);
 
-/**
- *  remove escape chars
- */
-$stripedSource = str_replace(
-        array('&gt;','&lt;','&quot;','&amp;'),
-        array(' ', ' ', ' ', ' '),
-        $stripedSource
-        );
-
-
-/**
- *  strtolower
- */
-$stripedSource = strtolower($stripedSource);
-
-/**
- *  remove non a-z - breakLine chars
- */
-$stripedSource = preg_replace('/[^a-z-]/s',' ',$stripedSource);
-$arrSource = explode(' ', $stripedSource);
-/**
- *   arrPond  the => 3
- */
-$arrPond = array();
-
-
-foreach ($arrSource as $k => $v) {
-    if (strlen($v) < 3) {
-        // remove common word shorter than 3 chars such as a , an
-        unset($arrSource[$k]);
-    } else {
-        if (isset($arrPond[$v])) {
-            $arrPond[$v] = $arrPond[$v]+1;
-        } else {
-            $arrPond[$v] = 1;
-        }
-    }
-}
 
 /**
  *  arrCount 15=>array('test','word')
@@ -84,6 +45,7 @@ foreach ($arrPond as $k => $v) {
 }
 
 krsort($arrCount);
+echo json_encode($arrPond);exit;
 
 $timeEnd = microtime();
 
