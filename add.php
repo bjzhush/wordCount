@@ -4,6 +4,7 @@
  */
 
 
+include('config.php');
 include('function.php');
 /**
  *  validate
@@ -26,7 +27,7 @@ if (file_get_contents($_GET['url']) === FALSE) {
                     )));
 }
 
-$mysqli = new mysqli('localhost', 'root', 'i', 'wordCount');
+$mysqli = new mysqli($db_host, $db_user, $db_pwd, $db_dbname);
 if ($mysqli->connect_errno) {
     exit('Connect to mysql error');
 }

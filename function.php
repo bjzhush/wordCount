@@ -21,8 +21,8 @@ function wordParse($html) {
      *  remove escape chars
      */
     $stripedSource = str_replace(
-            array('&gt;','&lt;','&quot;','&amp;','&nbsp;'),
-            array(' ', ' ', ' ', ' ', ' '),
+            array('&gt;','&lt;','&quot;','&amp;','&nbsp;','-'),
+            array(' ', ' ', ' ', ' ', ' ',' '),
             $stripedSource
             );
 
