@@ -51,6 +51,7 @@ CREATE TABLE `urlcount` (
   `html` text NOT NULL COMMENT 'orignal html source',
   `urlhash` varchar(100) NOT NULL COMMENT 'md5 of url',
   `wordcount` text NOT NULL COMMENT 'wordCount for each url and total ,json format',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `urlhash` (`urlhash`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
