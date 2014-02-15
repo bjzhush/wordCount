@@ -25,12 +25,18 @@
         if (isset($newList)) {
             foreach ($newList as $k => $v) {
                 foreach ($v as $kb => $vb) {
-                    echo '<span class="word"> <span  style="width:200px;display:-moz-inline-box;display:inline-block;" class="tip"> <h2>'.$kb.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$vb.'</h2></span><span class="delete">X</span></span><br>';
+                //目前只展示出现超过20次的单词
+                    if ($k>20) {
+                        echo '<span class="word"> <span  style="width:200px;display:-moz-inline-box;display:inline-block;" class="tip"> <h2>'.$k.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$vb.'</h2></span><span class="delete">X</span></span><br>';
+                    }
                 }
             }
         } else {
             foreach ($wordList as $k => $v) {
-                echo '<span class="word"> <span  style="width:200px;display:-moz-inline-box;display:inline-block;" class="tip"> <h2>'.$k.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$v.'</h2></span><span class="delete">X</span></span><br>';
+                //目前只展示出现超过20次的单词
+                if ($v > 20) {
+                    echo '<span class="word"> <span  style="width:200px;display:-moz-inline-box;display:inline-block;" class="tip"> <h2>'.$k.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$v.'</h2></span><span class="delete">X</span></span><br>';
+                }
             }
         }
 

@@ -54,7 +54,7 @@ if (isset($sortMethod)) {
     }
     krsort($newList);
 } else {
-    ksort($wordList);
+    krsort($wordList);
 }
 
 include('showNewWord.tpl');
