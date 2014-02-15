@@ -1,0 +1,16 @@
+{ 
+ "browser_action": { 
+      "default_icon": "icon.png", 
+      "icons": [ "icon.png" ], 
+      "name": "chat demo" 
+   }, 
+    "name": "word count", 
+   "version": "1.0", 
+   "manifest_version":2,
+    "content_scripts": [ { 
+    "js": [ "hello.js" ], 
+    "matches": [ "*://*/*"], 
+    "permissions": [ "*://*/*" ],
+    "run_at": "document_end" 
+   } ] 
+}
