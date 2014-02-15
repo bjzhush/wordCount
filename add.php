@@ -17,6 +17,10 @@ if (empty($_GET['validate']) || $_GET['validate'] != 'bjzhush') {
 if (empty($_GET['url'])) {
     exit('Bad url');
 }
+$url = parse_url($_GET['url']);
+if ($url['host'] === 'localhost') {
+    exit('skip localhost');
+}
 /**
  *  bad url got
  */
@@ -40,6 +44,7 @@ while ($row = $resCheck->fetch_assoc()) {
                     'info'   => 'existed url '.$_GET['url'],
                     )));
 }
+
 
 $htmlSource = @file_get_contents($_GET['url']);
 if ($htmlSource === FALSE) {
