@@ -43,13 +43,6 @@ foreach ($arrPond as $k => $v) {
         $arrCount[$v] = array($k);
     }
 }
-
 krsort($arrCount);
-echo json_encode($arrPond);exit;
 
-$timeEnd = microtime();
-
-$timeCost = $timeEnd-$timeStart;
-$memUse = round(memory_get_usage()/1048576,2);
-
-include('template.tpl');
+include('showCount.tpl');
